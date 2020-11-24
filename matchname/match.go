@@ -5816,6 +5816,10 @@ var knownPorts = map[int]string{
 	49150: "inspider",
 }
 
-func Parse(port int) string{
-  return knownPorts[port]
+func Parse(port int) string {
+	detail := knownPorts[port]
+	if detail == "" {
+		detail = "unknown"
+	}
+	return detail
 }
